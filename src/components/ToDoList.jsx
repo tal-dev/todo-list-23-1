@@ -1,5 +1,6 @@
 import React from "react"
 import { v4 as uuidv4 } from 'uuid';
+import ToDoItem from "./ToDoItem";
 
 class ToDoList extends React.Component {
 
@@ -16,6 +17,12 @@ class ToDoList extends React.Component {
             inputValue: e.target.value
         })
     }
+
+    // handleDeleteItem = (deletedItem) => {
+    //     this.setState({
+    //         items: this.state.items.filter(item.id !== deletedItem.id)
+    //     })
+    // }
 
     handleAddItem = () => {
 
@@ -38,13 +45,14 @@ class ToDoList extends React.Component {
         return (
             <div>
                 <>
-                    <input type="text" placeholder="add to do" onChange={this.handleInputChange}/>
+                    <input type="text" placeholder="add to do" onChange={this.handleInputChange} value={this.state.inputValue
+                    }/>
                     <button onClick={this.handleAddItem}>Add</button>
                 </>
                 <ul>
                     {
                         this.state.items.map(item => {
-                            return <p>{item.name}</p>
+                            return <ToDoItem toDoItem={item} />
                         })
                     }
                 </ul>
