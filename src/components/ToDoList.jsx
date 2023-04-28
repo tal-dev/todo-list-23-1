@@ -41,11 +41,13 @@ class ToDoList extends React.Component {
                     <input type="text" placeholder="add to do" onChange={this.handleInputChange}/>
                     <button onClick={this.handleAddItem}>Add</button>
                 </>
-                {/* <ul>
+                <ul>
                     {
-
+                        this.state.items.map(item => {
+                            return <p>{item.name}</p>
+                        })
                     }
-                </ul> */}
+                </ul>
             </div>
 
         )
